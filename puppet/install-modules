@@ -9,10 +9,12 @@ GIT_MODULES = {
 }
 
 MODULES = %W{
+  acme/ohmyzsh
   puppetlabs/ntp
   puppetlabs/stdlib
   puppetlabs/vcsrepo
   puppetlabs/apt
+  puppetlabs/haproxy
 }
 
 GIT_MODULES.each { |mod, options|

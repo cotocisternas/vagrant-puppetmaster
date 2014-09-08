@@ -1,0 +1,3 @@
+classes:
+  - role::haproxy::server::web
+role::haproxy::server::web::domain_listen: 'www.petabyte.cl'

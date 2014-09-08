@@ -1,6 +1,7 @@
 classes:
   - apt
   - ntp
+  - role::global::common
 ntp::restrict:
   -
 ntp::autoupdate: false

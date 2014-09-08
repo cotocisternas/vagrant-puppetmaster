@@ -1,6 +1,6 @@
 ---
 :hierarchy:
-  - nodes/"%{::fqdn}"
+  - "nodes/%{::fqdn}"
   - global
 :backends:
   - yaml
