@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+require "fileutils"
+
+REPO_PATH = File.dirname __FILE__
+MODULE_PATH = File.expand_path "modules", REPO_PATH
+
+GIT_MODULES = {
+  ## :name => { :github => "user/name", :branch => "master" },
+}
+
+MODULES = %W{
+  puppetlabs/ntp
+  puppetlabs/stdlib
+  puppetlabs/vcsrepo
+  puppetlabs/apt
+}
+
+GIT_MODULES.each { |mod, options|
+  url = "git://github.com/#{options[:github]}.git"
+  branch = options[:branch] || "master"
+  mod_path = "#{MODULE_PATH}/#{mod}"
+
+  puts "+ installing module #{mod} from #{url}"
+  if File.exists?(mod_path)
+    FileUtils.rm_rf(mod_path)
+  end
+
+  `git clone -q -b #{branch} #{url} #{mod_path}`
+}
+
+MODULES.each { |mod|
+  puts "+ installing module #{mod}"
+  `puppet module install #{mod} --modulepath #{MODULE_PATH}`
+}

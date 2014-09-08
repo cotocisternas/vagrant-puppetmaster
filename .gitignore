@@ -1,0 +1,5 @@
+.vagrant
+veewee/*.box
+veewee/iso
+puppet/modules/*
+!puppet/modules/.keep
