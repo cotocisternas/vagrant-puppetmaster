@@ -2,6 +2,23 @@ classes:
   - apt
   - ntp
   - role::global::common
+  - role::dns::client
+datacenters:
+  ng:
+    - '172.16.10.254'
+    - '172.16.11.254'
+    - '172.16.12.254'
+  ts:
+    - '172.16.11.254'
+    - '172.16.10.254'
+    - '172.16.12.254'
+  qs:
+    - '172.16.12.254'
+    - '172.16.10.254'
+    - '172.16.11.254'
+role::dns::domain: 'txel.systems'
+role::dns::search: 'txel.systems'
+
 ntp::restrict:
   -
 ntp::autoupdate: false

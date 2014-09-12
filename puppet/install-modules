@@ -5,7 +5,7 @@ REPO_PATH = File.dirname __FILE__
 MODULE_PATH = File.expand_path "modules", REPO_PATH
 
 GIT_MODULES = {
-  ## :name => { :github => "user/name", :branch => "master" },
+  :dns => { :github => "ajjahn/puppet-dns", :branch => "master" },
 }
 
 MODULES = %W{
@@ -14,6 +14,7 @@ MODULES = %W{
   puppetlabs/stdlib
   puppetlabs/vcsrepo
   puppetlabs/apt
+  saz/resolv_conf
   puppetlabs/haproxy
 }
 
